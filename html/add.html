@@ -1,0 +1,70 @@
+<div class="container" >
+ <div class="container well">
+
+  <h2>Ajouter une tâche</h2>
+
+    <form name="form" novalidate class="css-form" >
+    <div class="form-group">
+      <div class="form-inline">
+        <label>Titre:</label>
+        <input type="text" class="form-control" id="title" ng-model="task.title" placeholder="Titre de la tâche" autofocus autocomplete="off" required/>
+
+         <select ng-model="task.context" id="categories">
+           <option value="" selected>Contexte</option>
+           <option value="valeur1">Travail</option>
+           <option value="valeur2">Voyage</option>
+           <option value="valeur3">Cours</option>
+         </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea class="form-control" rows="5" id="desc" ng-model="task.desc" autofocus autocomplete="off"></textarea>
+      </div>
+
+      <div class="form-group">
+        <div class="form-inline">
+           <label for="date-deadline">   Date: </label>
+           <input type="date" id="date-deadline" ng-model="task.date" placeholder="Date de fin" autofocus autocomplete="off">
+            <p></p>
+           <label for="hour-deadline">   Heure: </label>
+           <input type="time" id="hour-deadline" ng-model="task.hour" placeholder="Heure de fin" autofocus autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Boutons effacer / ajouter -->
+      <div class="form-group" style="float: left;">
+         <input class="btn btn-danger" type="button" ng-click="reset()" value="Effacer" />
+         <input type="submit" class="btn btn-default" ng-disabled="form.$invalid"  ng-click="addTask(task)" value="Ajouter" />
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Floating bouton -->
+  <a href="#!list" class="back_float">
+    <i class="fas fa-angle-left my-float"></i>
+  </a>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

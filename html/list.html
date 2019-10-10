@@ -1,0 +1,91 @@
+<div class="container" >
+
+  <h2>Il reste <span class="emphasis">{{getTasklistLength()}}</span> tâche(s) à effectuer.</h2>
+
+  <!-- Liste des tâches-->
+  <ul id="todo-list">
+    <li ng-repeat="task in tasklist | orderBy:propertyName:reverse" class="list-group-item" ng-class="{completed: task.completed}">
+
+      <!-- Checkbox tâche complétée -->
+      <input  class="mark" type="checkbox" ng-model="task.completed" />
+
+      <!-- Titre de la tâche -->
+      <span class="completed-{{task.completed}}" ng-class="{strike: task.completed}"  ng-if="editing !== task">{{task.title}}</span>
+      <input   ng-if="editing !== null" type="text" ng-model="task.title">
+
+      <!-- Boutons modifier/supprimer la tâche -->
+      <button ng-click="editing = editing ? null : task; modify(task)" ng-class="{'btn fas fa-check': editing !== null, 'btn fas fa-pencil-alt': !editing !== null}"></button>
+      <button ng-click="removeTask(task)" class="btn fas fa-trash-alt"></button>
+
+
+      <!-- Détails de la tâche : description, contexte, date, heure -->
+      <div>
+        <hr>
+        <div class="form-group">
+
+          <!-- Menu sélect contexte -->
+          <span  ng-class="{strike: task.completed}" ng-if="editing !== task"><label>Contexte:</label>{{task.context}}</span>
+             <select  ng-if="editing !== null" ng-model="task.context" id="categories">
+                <option value="" selected>Contexte</option>
+                <option value="valeur1">Travail</option>
+                <option value="valeur2">Voyage</option>
+                <option value="valeur3">Cours</option>
+            </select>
+
+          <p></p>
+
+          <!-- Description -->
+          <span ng-class="{strike: task.completed}" ng-if="editing !== task"><label>Description:</label>{{task.desc}}</span>
+          <input ng-if="editing !== null" type="text" ng-model="task.desc">
+
+          <p></p>
+
+          <!-- Date et heure -->
+          <span ng-class="{strike: task.completed}" ng-if="editing !== task"><label>Date:</label>{{task.date | date: "dd-MM-yyyy"}}</span>
+          <input  ng-if="editing !== null" type="date" ng-model="task.date">
+          <p></p>
+          <span ng-class="{strike: task.completed}" ng-if="editing !== task"><label>Heure:</label>{{task.hour | date: "HH:mm"}}</span>
+          <input  ng-if="editing !== null" type="time" ng-model="task.hour">
+          <p></p>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+
+  <!-- Boutons de tri -->
+  <div ng-show="getTasklistLength() > 0">
+    <div>
+
+      Trier par:
+
+      <button ng-click="sortBy('title')">Titre</button>
+      <span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span>
+
+      <button ng-click="sortBy('date')">Date</button>
+      <span class="sortorder" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
+
+      <button ng-click="sortBy('context')">Contexte</button>
+      <span class="sortorder" ng-show="propertyName === 'context'" ng-class="{reverse: reverse}"></span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Boutons cocher/décocher et supprimer tout -->
+  <div ng-show="getTasklistLength() > 0">
+    <div >
+      <input id="mark-all" type="checkbox" ng-model="allChecked" ng-click="markAll(!allChecked)" />
+      <label class="btn btn-info" for="mark-all">Tout cocher</label>
+      <button class="btn btn-danger" ng-click="clearCompletedTodos()">Supprimer tâches cochées</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Floating bouton -->
+  <a href="#!add" class="add_float">
+    <i class="fas fa-plus my-float"></i>
+  </a>
+
+</div>

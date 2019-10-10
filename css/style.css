@@ -1,0 +1,31 @@
+.css-form input.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
+.completed-true {
+  text-decoration: line-through;
+  color: #ddd;
+}
+
+body {
+  padding: 10px;
+}
+
+.emphasis {
+  font-family: vast-shadow, sans-serif;
+  font-size: 1.5em;
+}
+
+.css-form input.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
+.strike {
+text-decoration: line-through;
+}
+.sortorder:after {
+content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}

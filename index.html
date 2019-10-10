@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" charset="utf-8">
+  </head>
+
+  <body ng-app="toDoApp" ng-controller="ToDoAppController" ng-style="myObj">
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <header id="header">
+          <h3>ToDoApp</h3>
+        </header>
+      </div>
+    </div>
+
+    <hr>
+    <hr>
+
+    <div ng-view></div>
+
+
+    <!-- Références aux fichiers css et js -->
+
+    <!-- AngularJS-->
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-animate.js"></script>
+
+    <!-- Module et controllers -->
+    <script src="js/script.js"></script>
+
+    <!-- Feuilles de style -->
+    <script type="text/css" src="css/style.css"></script>
+    <link rel="stylesheet" href="./css/w3.css">
+
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/ui-bootstrap-tpls-0.13.0.js"></script>
+
+    <!-- Icons de FontsAwesome -->
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->    <!-- Bootstrap-->
+
+    <!-- Floating bouton -->
+    <style>
+      .add_float{
+      position:fixed;
+      width:60px;
+      height:60px;
+      bottom:40px;
+      right:40px;
+      background-color:#0C9;
+      color:#FFF;
+      border-radius:50px;
+      text-align:center;
+      box-shadow: 2px 2px 3px #999;
+      }
+      .back_float{
+      position:fixed;
+      width:60px;
+      height:60px;
+      bottom:40px;
+      right:40px;
+      background-color:#C03;
+      color:#FFF;
+      border-radius:50px;
+      text-align:center;
+      box-shadow: 2px 2px 3px #999;
+      }
+
+      .my-float{
+      margin-top:22px;
+      }
+
+      .strike {
+      text-decoration: line-through;
+      }
+
+    </style>
+
+  </body>
+</html>
